@@ -1,0 +1,23 @@
+t2m_snow=t2m;
+t2m_snow.set_miss(9.96921e+36);
+
+t2m_rain=t2m;
+t2m_rain.set_miss(9.96921e+36);
+
+where(ptype == 5)
+{
+    t2m_snow=t2m;
+} elsewhere {
+    t2m_snow=9.96921e+36;
+}
+
+where(ptype == 1)
+{
+    t2m_rain=t2m;
+} elsewhere {
+    t2m_rain=9.96921e+36;
+}
+
+latitude=latitude;
+longitude=longitude;
+time=time;

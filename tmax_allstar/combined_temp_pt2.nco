@@ -1,0 +1,23 @@
+where(t2m_snow > 274.4)
+{
+    t2m_snow = 274.4;
+}
+
+where(t2m_snow < 271.04)
+{
+    t2m_snow = 271.04;
+}
+
+where(t2m_rain > 276.48)
+{
+    t2m_rain = 276.48;
+}
+
+where(t2m_rain < 274.65)
+{
+    t2m_rain = 274.65;
+}
+
+latitude=latitude;
+longitude=longitude;
+time=time;
