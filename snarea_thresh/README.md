@@ -7,8 +7,9 @@ The parameter, `snarea_thresh`, is in units of inches.
 
 The unmasked version of SNODAS, which provides greater coverage than the masked version, is used to generate the `snarea_thresh` parameter. 
 
-==snarea_thresh=0 can cause a divide-by-zero in PRMS==
-==Use median of the annual max for generating snarea_thres==
+<aside class="notice">
+snarea_thresh=0 can cause a divide-by-zero in PRMS
+</aside>
 
 # Requirements
 Climate Data Operators (https://code.mpimet.mpg.de/projects/cdo/)
