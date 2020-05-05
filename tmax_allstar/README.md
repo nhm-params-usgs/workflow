@@ -18,18 +18,18 @@ Value | Description
 
 ## General workflow
 ### Requirements<a name='reqs'></a>
-To complete the workflow described below you will need to install (or have available) the following: 
-Climate Data Operators (https://code.mpimet.mpg.de/projects/cdo/)
-NetCDF Operators (http://nco.sourceforge.net/)
-**Python Libraries**
-cdsapi (https://cds.climate.copernicus.eu/api-how-to)
-csv
-geopandas
-multiprocessing
-numpy
-pandas
-shapely
-xarray
+To complete the workflow described below you will need to install (or have available) the following:  
+Climate Data Operators (https://code.mpimet.mpg.de/projects/cdo/)  
+NetCDF Operators (http://nco.sourceforge.net/)  
+**Python Libraries**  
+cdsapi (https://cds.climate.copernicus.eu/api-how-to)  
+csv  
+geopandas  
+multiprocessing  
+numpy  
+pandas  
+shapely  
+xarray  
 
 The Climate Data Operators and NetCDF Operators have further library requirements that are discussed on their websites. The workflow below used nco_4.9.2, cdo_1.9.8, and Python 3.7.
 
