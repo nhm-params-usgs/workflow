@@ -6,18 +6,9 @@ import pandas as pd
 import numpy as np
 
 import xarray as xr
-import json
 import csv
 from shapely.geometry import Polygon
 import multiprocessing as mp
-
-# import os
-# from pathlib import Path
-# from numpy.ma import masked
-
-
-# def distance(p1x, p1y, p2x, p2y):
-#     return np.sqrt(np.power((p2x-p1x), 2) + np.power((p2y-p1y), 2))
 
 
 def process_weights(shp_chunk, shape_key, src_netcdf):
@@ -66,10 +57,10 @@ def mp_process_weights(cell_geom, src_polys, shape_key):
 
 def main():
     # ************ Adjust these settings ****************
-    workdir = '/Users/pnorton/Projects/National_Hydrology_Model/datasets/tstorm_mo'
+    workdir = './datasets/tstorm_mo'
     src_netcdf = f'{workdir}/out1.nc'
     src_gridspacing = 0.5  # Gridspacing of src_netcdf in degrees
-    geodatabase = '/Users/pnorton/Projects/National_Hydrology_Model/Trans-boundary_HRUs/GIS/GFv1.1_v2e.gdb'
+    geodatabase = './Trans-boundary_HRUs/GIS/GFv1.1_v2e.gdb'
     layer_name = 'nhru_v11'  # Layer name if geodatabase otherwise None
     shape_key = 'nhru_v11'  # Name of HRU id attribute
     weight_file = f'{workdir}/cfsr_weights.csv'
@@ -81,7 +72,6 @@ def main():
     # Change the variable names to match the src_netcdf file
     lathandle = ds['lat']
     lonhandle = ds['lon']
-    # timehandle = ds['time']
     datahandle = ds['TSTORM_MO']
 
     print('Reading HRUs')
@@ -95,7 +85,6 @@ def main():
 
     # Print some information on the data
     print('\n Data attributes, sizes, and coords \n')
-    # print('\n Data attributes are: \n', json.dumps(datahandle.attrs, indent=4))
     print('\n Data sizes are: \n', datahandle.sizes)
     print('\n Data coords are: \n', datahandle.coords)
 
@@ -110,7 +99,6 @@ def main():
 
     # res is half of the 'resolution' (e.g. gridspacing in degrees)
     res = src_gridspacing / 2.0
-    # numcells = lon.size
     poly = []
     index = []
     count = 0

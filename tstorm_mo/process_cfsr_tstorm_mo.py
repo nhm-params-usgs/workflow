@@ -5,7 +5,6 @@ import pandas as pd
 import xarray as xr
 import sys
 
-# from helper import np_get_wval
 from numpy.ma import masked
 
 
@@ -25,7 +24,6 @@ def np_get_wval(ndata, wghts, **kwargs):
 def np_unweighted_max(ndata, wghts, **kwargs):
     nan_default = kwargs.get('nan', np.nan)
     cgrid_ids = wghts['grid_ids'].tolist()
-    # cwgts = wghts['w'].tolist()
     mdata = np.ma.masked_array(ndata[cgrid_ids], np.isnan(ndata[cgrid_ids]))
 
     tmp = np.ma.max(mdata)
@@ -103,8 +101,8 @@ def proc_loop_bymonth(nhm_ids, hru_ids, src_data, src_var_name, out_size, nan=No
 
 def main():
     # ************ Adjust these settings ****************
-    workdir = '/Users/pnorton/Projects/National_Hydrology_Model/datasets/tstorm_mo'
-    paramdb_dir = '/Users/pnorton/tmp/tmp_paramdb'
+    workdir = './datasets/tstorm_mo'
+    paramdb_dir = './tmp/tmp_paramdb'
 
     src_file = f'{workdir}/out1.nc'
     weights_file = f'{workdir}/cfsr_weights.csv'
