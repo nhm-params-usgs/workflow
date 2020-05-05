@@ -115,8 +115,8 @@ def main():
     # src_field = 'LANDMASK'
     # weights_file = f'{workdir}/snodas_weights.csv'
 
-    workdir = '/Users/pnorton/Projects/National_Hydrology_Model/datasets/SNODAS/unmasked'
-    paramdb_dir = '/Users/pnorton/tmp/tmp_paramdb'
+    workdir = './datasets/SNODAS/unmasked'
+    paramdb_dir = './tmp/tmp_paramdb'
 
     # src_file = f'{workdir}/snodas_test_patterns_NHM.nc'
     src_file = f'{workdir}/SWE_median_of_max_yearly_inches_NHM_adj.nc'

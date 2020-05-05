@@ -6,11 +6,11 @@
 import numpy as np
 import xarray as xr
 
-workdir = '/Users/pnorton/Projects/National_Hydrology_Model/datasets/SNODAS/unmasked'
+workdir = './datasets/SNODAS/unmasked'
 src_netcdf = f'{workdir}/snodas_landmask_NHM.nc'
 src_mask_var = 'LANDMASK'
 
-dst_netcdf = f'{workdir}/crap1.nc'
+dst_netcdf = f'{workdir}/snodas_masks_NHM.nc'
 
 ds2 = xr.open_dataset(src_netcdf, mask_and_scale=False)
 
