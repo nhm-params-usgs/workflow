@@ -3,6 +3,20 @@
 
 The `tstorm_mo` parameter is a monthly indicator of the predominate storm type where a value of zero indicates frontal storms and a value of one indicates convective storms. For the NHM this parameter is derived from the Climate Forecast System Reanalysis model (CFSR) which provides a global reanalysis dataset with horizontal grid spacings as fine as 0.5° x 0.5° and 64 levels in the vertical at sub-daily and monthly intervals (Saha and others, 2010). The CFSR model output was obtained from the Research Data Archive hosted by the National Center for Atmospheric Research (NCAR; http://rda.ucar.edu). Model output from CFSR includes separate convective and frontal precipitation variables in addition to the total precipitation. Convective and frontal precipitation values from CFSR for 1979–2010 were used to derive the `tstorm_mo` parameter for the NHM domain. First mean monthly values of convective and frontal precipitation were computed for 1979-2010. Next a convective mask by month was created; where the convective precipitation divided by the frontal precipitation was greater than 0.9 the mask was set to one, indicating a predominance of convective precipitation events occurring on average for the month, otherwise it was set to zero, indicating a predominance of frontal precipitation events. The `tstorm_mo` parameter is then computed for each month based on the area unweighted maximum value of the CFSR mask. 
 
+# Requirements
+To complete the workflow described below you will need to install (or have available) the following: 
+Climate Data Operators (https://code.mpimet.mpg.de/projects/cdo/)
+NetCDF Operators (http://nco.sourceforge.net/)
+**Python Libraries**
+csv
+geopandas
+multiprocessing
+numpy
+pandas
+shapely
+xarray
+
+The Climate Data Operators and NetCDF Operators have further library requirements that are discussed on their websites. The workflow below used nco_4.9.2, cdo_1.9.8, and Python 3.7.
 
 # Workflow
 Original work was done on tibicus.
@@ -35,7 +49,7 @@ python process_cfsr_tstorm_mo.py
 
 # Scripts
 
-## `create_monthly_mean_CONUS.sh`
+## create_monthly_mean_CONUS.sh
 ```bash
 #!/bin/bash -e
 
@@ -62,7 +76,7 @@ rm tmp.nc
 echo "Done!"
 ```
 
-## `tstorms.nco`
+## tstorms.nco
 ```bash
 TSTORM_MO=RAIN;
 TSTORM_MO.set_miss(9.96921e+36);
